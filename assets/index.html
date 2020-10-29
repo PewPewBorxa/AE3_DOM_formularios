@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE3</title>
+    <script src="/css/index.css"></script>
+</head>
+
+<body>
+    <header class="barra_nav">
+        <div class="goback"><button id="BackButton" class="botones">Atrás</button></div>
+        <div class="next"><button id="Continue" class="botones">Continuar</button></div>
+    </header>
+
+    <div id="formulario_solicitud_datos">
+        <form action="">
+            <label for="name">Nombre: </label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="surname">Apellidos: </label>
+            <input type="text" pattern=".+ ." name="surname" id="surname">
+
+            <label for="birth">Fecha de nacimiento: </label>
+            <input type="date" name="birth" id="birth" required>
+
+            <label for="direccion">Dirección: </label>
+            <input type="text" name="direccion" id="direccion">
+
+            <label for="postcode">Código postal: </label>
+            <input type="number"  name="postcode" id="postcode" maxlength="5" size="5" required>
+
+            <label for="provincia">Provincia: </label>
+            <select name="provincia" id="provincia" required>
+                <option value="" disabled selected>Escoge tu provincia</option>
+                <option value="valencia">Valencia</option>
+                <option value="alicante">Alicante</option>
+                <option value="castellon">Castellón</option>
+            </select>
+
+            <label for="municipio">Municipio: </label>
+            <input type="text" name="" id="" class="municipio" required>
+        </form>
+    </div>
+
+</body>
+
+</html>

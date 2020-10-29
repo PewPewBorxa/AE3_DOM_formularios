@@ -1,3 +1,7 @@
+body{
+    display: flex;
+}
+
 .errores{
     background-color: grey;
     color: crimson;
@@ -13,4 +17,20 @@
 .botones:disabled{
        background-color: rgb(253, 177, 34);
        color: black;
+}
+
+.municipio{
+    text-transform: uppercase;
+}
+
+.barra_nav{
+    width: 100%;
+}
+
+.goback{
+
+}
+
+.next{
+
 }
