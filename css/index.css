@@ -1,0 +1,16 @@
+.errores{
+    background-color: grey;
+    color: crimson;
+    border: solid 1px red;
+}
+
+.botones{
+    border-radius: 3px;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.botones:disabled{
+       background-color: rgb(253, 177, 34);
+       color: black;
+}

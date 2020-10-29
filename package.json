@@ -1,0 +1,19 @@
+{
+  "name": "ae3_ec",
+  "version": "0.0.1",
+  "description": "AE3 DOM FORMULARIOS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PewPewBorxa/AE3_DOM_formularios.git"
+  },
+  "author": "Borja Torregrosa Lorente",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PewPewBorxa/AE3_DOM_formularios/issues"
+  },
+  "homepage": "https://github.com/PewPewBorxa/AE3_DOM_formularios#readme"
+}
