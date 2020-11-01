@@ -1,0 +1,73 @@
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #5d5d5d;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+    zoom: 200%;
+}
+
+.municipio {
+    text-transform: uppercase;
+}
+
+.botones {
+    background-color: dodgerblue;
+    border-radius: 3px;
+    color: white;
+    height: 44px;
+    width: 88px;
+}
+
+.botones:disabled {
+    background-color: orange;
+    color: black;
+}
+
+.errores {
+    background-color: grey;
+    color: indianred;
+    border: solid 1px red;
+}
+
+form:first-child {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.header {
+    background-color: aquamarine;
+    width: 100%;
+    height: 44px;
+}
+
+.barra_nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.botones_form {
+    background-color: dodgerblue;
+    border-radius: 3px;
+    color: white;
+    height: auto;
+    width: auto;
+    margin-top: 4px;
+}
+
+.botones_form:disabled {
+    background-color: orange;
+    color: black;
+    height: auto;
+    width: auto;
+}
+
+.paso_1 {
+    width: 50%;
+}
