@@ -13,15 +13,19 @@ p_p1.appendChild(document.createTextNode('Introduce una url:'));
 const form_p1 = document.createElement('form');
 
 const l_url = document.createElement('label');
-l_url.setAttribute('for', 'name');
-l_url.appendChild(document.createTextNode('Nombre:'));
-
+l_url.setAttribute('for', 'url');
+l_url.appendChild(document.createTextNode('URL:'));
 const url = document.createElement('input');
-name.setAttribute('type', '');
-name.setAttribute('name', 'callbackurl');
-name.id = 'name';
-name.required = true;
+url.setAttribute('type', 'url');
+url.setAttribute('name', 'callbackurl');
+url.id = 'url';
+url.required = true;
+url.setAttribute('onchange','setURL()');
+
 div_paso_1.appendChild(h1_p1);
+div_paso_1.appendChild(p_p1);
+div_paso_1.appendChild(l_url);
+div_paso_1.appendChild(url);
 
 /* PASO 2 */
 const div_form_i = document.createElement('div');
@@ -177,25 +181,99 @@ form_i.appendChild(mun);
 form_i.appendChild(reset);
 form_i.appendChild(submit);
 
-var indice = 1;
 
+/* PASO 3 */
+
+const div_review = document.createElement('div');
+div_review.id = 'modificar_datos';
+div_review.className = 'modificar_datos';
+
+const h1_mod = document.createElement('h1');
+h1_mod.appendChild(document.createTextNode('Son los datos introducidos correctos?'));
+
+const l_nombre_mod = document.createElement('label');
+l_nombre_mod.appendChild(document.createTextNode('Nombre: '));
+const nombre_mod = name.value;
+const h_nombre_mod = document.createElement('input');
+h_nombre_mod.readOnly = true;
+h_nombre_mod.value = nombre_mod;
+const l_apellido_mod = document.createElement('label');
+l_apellido_mod.appendChild(document.createTextNode('Apellidos: '));
+const apellido_mod = surname.value;
+const h_apellido_mod = document.createElement('input');
+h_apellido_mod.readOnly = true;
+h_apellido_mod.value = apellido_mod;
+const l_fecha_mod = document.createElement('label');
+l_fecha_mod.appendChild(document.createTextNode('Fecha: '));
+const fecha_n_mod = bday.value;
+const h_fecha_n_mod = document.createElement('input');
+h_fecha_n_mod.readOnly = true;
+h_fecha_n_mod.value = fecha_n_mod;
+const l_direccion_mod = document.createElement('label');
+l_direccion_mod.appendChild(document.createTextNode('Direccion: '));
+const direccion_mod = dir.value;
+const h_direccion_mod = document.createElement('input');
+h_direccion_mod.readOnly = true;
+h_direccion_mod.value = direccion_mod;
+const l_post_mod = document.createElement('label');
+l_post_mod.appendChild(document.createTextNode('Código Postal: '));
+const post_mod = post.value;
+const h_post_mod = document.createElement('input');
+h_post_mod.readOnly = true;
+h_post_mod.value = post_mod;
+const l_prov_mod = document.createElement('label');
+l_prov_mod.appendChild(document.createTextNode('Provincia: '));
+const prov_mod = prov.value;
+const h_prov_mod = document.createElement('input');
+h_prov_mod.readOnly = true;
+h_prov_mod.value = prov_mod;
+const l_municipio_mod = document.createElement('label');
+l_municipio_mod.appendChild(document.createTextNode('Municipio: '));
+const municipio_mod = mun.value;
+const h_municipio_mod = document.createElement('input');
+h_municipio_mod.readOnly = true;
+h_municipio_mod.placeholder = municipio_mod;
+
+div_review.appendChild(l_nombre_mod);
+div_review.appendChild(h_nombre_mod);
+div_review.appendChild(l_apellido_mod);
+div_review.appendChild(h_apellido_mod);
+div_review.appendChild(l_fecha_mod);
+div_review.appendChild(h_fecha_n_mod);
+div_review.appendChild(l_direccion_mod);
+div_review.appendChild(h_direccion_mod);
+div_review.appendChild(l_post_mod);
+div_review.appendChild(h_post_mod);
+div_review.appendChild(l_prov_mod);
+div_review.appendChild(h_prov_mod);
+div_review.appendChild(l_municipio_mod);
+div_review.appendChild(h_municipio_mod);
+
+var indice = 1;
+var CallbackUrl = '';
 
 const continuar = document.getElementById('Continue');
 const atras = document.getElementById('BackButton');
-continuar.setAttribute('onclick','next()');
+continuar.setAttribute('onclick', 'next()');
 
 document.body.appendChild(div_paso_1);
 
+function setURL(){
+    CallbackUrl = url.value;
+}
+
 function next() {
-    switch (indice +1) {
+    switch (indice + 1) {
         case 2:
             document.body.removeChild(div_paso_1);
             document.body.appendChild(div_form_i);
-            
+            indice = indice +1;
             break;
 
         case 3:
-
+            document.body.removeChild(div_form_i);
+            document.body.appendChild(div_review);
+            indice = indice +1;
             break;
 
         case 4:
