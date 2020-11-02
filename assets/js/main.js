@@ -177,7 +177,7 @@ div_review.className = 'modificar_datos';
 
 const h1_mod = document.createElement('h1');
 h1_mod.appendChild(document.createTextNode('Son los datos introducidos correctos?'));
-const p_mod = document.createElement('p'); 
+const p_mod = document.createElement('p');
 div_review.appendChild(h1_mod);
 
 
@@ -187,8 +187,7 @@ var CallbackUrl = '';
 const continuar = document.getElementById('Continue');
 const atras = document.getElementById('BackButton');
 continuar.setAttribute('onclick', 'next()');
-
-
+atras.setAttribute('onclick', 'back()');
 
 function setURL() {
     CallbackUrl = url.value;
@@ -224,13 +223,49 @@ var datos;
 
 function formSubmit() {
     event.preventDefault();
-    datos = formToJson();
+    datos = FormToJson();
     console.log(datos);
-    p_mod.appendChild(document.createTextNode(datos));
+    datos = JSON.parse(datos);
+    var div_temp = appendJSON(datos);
+    div_review.appendChild(div_temp);
+
 }
 
-function formToJson() {
+function FormToJson() {
     let data = new FormData(document.getElementById('form_1'));
-    let JSONdata = JSON.stringify(Object.fromEntries(data),null,2);
+    let JSONdata = JSON.stringify(Object.fromEntries(data), null, 2);
     return JSONdata;
+}
+
+function appendJSON(data) {
+    let keys = Object.keys(data);
+    let div = document.createElement('div');
+    for (let i = 0; i < keys.length; i++) {
+        div.appendChild(document.createTextNode(keys[i] + ' :: ' + data.keys[i]));
+    }
+    console.log(div);
+    return div;
+}
+
+function back() {
+    switch (indice - 1) {
+        case 2:
+            document.body.removeChild(div_review);
+            document.body.appendChild(div_form_i);
+            indice = indice - 1;
+            break;
+
+        case 3:
+            document.body.removeChild();
+            document.body.appendChild(div_review);
+            indice = indice - 1;
+            break;
+
+        case 1:
+            document.body.removeChild(div_form_i);
+            document.body.appendChild(div_paso_1);
+            indice = indice - 1;
+            break;
+        default:
+    }
 }
