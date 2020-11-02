@@ -17,6 +17,40 @@
         </nav>
     </header>
 
+    <div id='paso_1' class='paso_1'>
+        <h1>AE3 DOM Formularios</h1>
+        <p>Introduce una url:</p>
+        <form>
+            <label for="url">URL: </label>
+            <input type="url" onchange="setURL()" id="url" name="callbackurl" required>
+        </form>
+    </div>
+
+    <div id="formulario_solicitud_datos" class="formulario_solicitud_datos">
+        <form id="form_1">
+            <label for="name">Nombre: </label>
+            <input type="text" name="name" id="name" required>
+            <label for="surname">Apellidos:</label>
+            <input type="text" name="surname" pattern=".+ ." id="surname" required>
+            <label for="birth">Fecha de nacimiento: </label>
+            <input type="date" name="birth" id="birth" required>
+            <label for="direccion">Dirección: </label>
+            <input type="text" name="direccion" id="direccion">
+            <label for="postcode">Código Postal: </label>
+            <input type="number" name="postcode" id="postcode" maxlength="5" minlength="5" size="5" required>
+            <label for="provincia">Provincia: </label>
+            <select name="provincia" id="provincia" required>
+                <option value="" disabled selected>Escoge tu provincia</option>
+                <option value="valencia">Valencia</option>
+                <option value="alicante">Alicante</option>
+                <option value="castellon">Castellón</option>
+            </select>
+            <label for="municipio">Municipio: </label>
+            <input type="text" name="municipio" id="municipio" required>
+            <input type="reset" value="Borrar" id="reset" class="botones_form">
+            <input type="submit" value="Enviar" id="submit" class="botones_form" onclick="formSubmit()">
+        </form>
+    </div>
 </body>
 <script src="js/main.js"></script>
 
