@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <nav class="barra_nav">
-            <button id="BackButton" class="botones hidden">Atrás</button>
+            <button id="BackButton" class="botones hidden" onclick="back()">Atrás</button>
             <button id="Continue" class="botones" disabled>Continuar</button>
         </nav>
     </header>
@@ -27,28 +27,31 @@
     </div>
 
     <div id="formulario_solicitud_datos" class="formulario_solicitud_datos">
-        <form id="form_1">
+        <form id="form_sol_datos">
             <label for="name">Nombre: </label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" required onkeyup="ValidarFormulario2(Nombre)">
             <label for="surname">Apellidos:</label>
-            <input type="text" name="surname" pattern="([a-zA-Z]+\s){2}" id="surname" required>
+            <input type="text" name="surname" pattern="([a-zA-Z]+\s)([a-zA-Z]+)" id="surname" required
+                onkeyup="ValidarFormulario2(surname)">
             <label for="birth">Fecha de nacimiento: </label>
-            <input type="date" name="birth" id="birth" required>
+            <input type="date" name="birth" id="birth" required onkeyup="ValidarFormulario2(bday)">
             <label for="direccion">Dirección: </label>
-            <input type="text" name="direccion" id="direccion">
+            <input type="text" name="direccion" id="direccion" onkeyup="ValidarFormulario2(direccion)">
             <label for="postcode">Código Postal: </label>
-            <input type="number" name="postcode" id="postcode" maxlength="5" minlength="5" size="5" required>
+            <input type="number" name="postcode" id="postcode" max="99999" min="11111" size="5" required
+                onkeyup="ValidarFormulario2(post)">
             <label for="provincia">Provincia: </label>
-            <select name="provincia" id="provincia" required>
+            <select name="provincia" id="provincia" required onkeyup="ValidarFormulario2(prov)">
                 <option value="" disabled selected>Escoge tu provincia</option>
                 <option value="valencia">Valencia</option>
                 <option value="alicante">Alicante</option>
                 <option value="castellon">Castellón</option>
             </select>
             <label for="municipio">Municipio: </label>
-            <input type="text" name="municipio" id="municipio" required>
+            <input type="text" name="municipio" id="municipio" required onkeyup="ValidarFormulario2(mun)" class="municipio">
             <input type="reset" value="Borrar" id="reset" class="botones_form">
-            <input type="submit" value="Enviar" id="submit" class="botones_form" onclick="formSubmit()">
+            <button id="submit" class="botones_form" onclick="formSubmit()" disabled>Enviar</button>
+
         </form>
     </div>
 </body>
