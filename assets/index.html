@@ -12,15 +12,15 @@
 <body>
     <header class="header">
         <nav class="barra_nav">
-            <button id="BackButton" class="botones">Atrás</button>
-            <button id="Continue" class="botones">Continuar</button>
+            <button id="BackButton" class="botones hidden">Atrás</button>
+            <button id="Continue" class="botones" disabled>Continuar</button>
         </nav>
     </header>
 
     <div id='paso_1' class='paso_1'>
         <h1>AE3 DOM Formularios</h1>
         <p>Introduce una url:</p>
-        <form>
+        <form id="form_paso_1">
             <label for="url">URL: </label>
             <input type="url" onchange="setURL()" id="url" name="callbackurl" required>
         </form>

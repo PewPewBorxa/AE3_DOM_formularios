@@ -191,6 +191,7 @@ atras.setAttribute('onclick', 'back()');
 
 function setURL() {
     CallbackUrl = url.value;
+    FormValidation();
 }
 
 const div_form_i = document.getElementById('formulario_solicitud_datos');
@@ -201,15 +202,19 @@ document.body.appendChild(div_paso_1);
 function next() {
     switch (indice + 1) {
         case 2:
+            
             document.body.removeChild(div_paso_1);
             document.body.appendChild(div_form_i);
             indice = indice + 1;
+            document.getElementById('indice').value = indice;
             break;
 
         case 3:
+            
             document.body.removeChild(div_form_i);
             document.body.appendChild(div_review);
             indice = indice + 1;
+            document.getElementById('indice').value = indice;
             break;
 
         case 4:
@@ -220,15 +225,16 @@ function next() {
 }
 
 var datos;
+const json = document.createElement('pre');
+json.id = json;
+
 
 function formSubmit() {
     event.preventDefault();
     datos = FormToJson();
     console.log(datos);
-    datos = JSON.parse(datos);
-    var div_temp = appendJSON(datos);
-    div_review.appendChild(div_temp);
-
+    json.textContent = datos;
+    appendJSON();
 }
 
 function FormToJson() {
@@ -237,14 +243,19 @@ function FormToJson() {
     return JSONdata;
 }
 
-function appendJSON(data) {
+function appendJSON() {
+    let data = FormToJson();
+    data = JSON.parse(data);
     let keys = Object.keys(data);
-    let div = document.createElement('div');
+    console.log(keys);
+    console.log(data);
+    let pre = document.createElement('pre');
     for (let i = 0; i < keys.length; i++) {
-        div.appendChild(document.createTextNode(keys[i] + ' :: ' + data.keys[i]));
+        let aux = keys[i];
+        pre.appendChild(document.createTextNode(keys[i] + ' :: ' + data[aux] + '\n'));
     }
-    console.log(div);
-    return div;
+    console.log(pre);
+    div_review.appendChild(pre);
 }
 
 function back() {
@@ -256,16 +267,37 @@ function back() {
             break;
 
         case 3:
+            document.getElementById('indice').value = indice;
             document.body.removeChild();
             document.body.appendChild(div_review);
             indice = indice - 1;
             break;
 
         case 1:
+            document.getElementById('indice').value = indice;
             document.body.removeChild(div_form_i);
             document.body.appendChild(div_paso_1);
             indice = indice - 1;
             break;
         default:
+    }
+}
+
+function HideElement() {
+    if (!(indice > 1)) {
+        document.getElementById('BackButton').className = 'botones hidden';
+    }else {
+        document.getElementById('BackButton').className = 'botones show';
+    }
+}
+
+function FormValidation() {
+    const form = document.getElementById('form_paso_1');
+    for (i = 0; i < form.length; i++) {
+        if (form[i].checkValidity()) {
+            document.getElementById('Continue').disabled = false;
+        } else {
+            form[i].className = '' + form[i].className + ' errores';
+        }
     }
 }

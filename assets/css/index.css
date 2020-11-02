@@ -71,3 +71,11 @@ form:first-child {
 .paso_1 {
     width: 50%;
 }
+
+.hidden {
+    opacity: 0;
+}
+
+.show {
+    opacity: 100;
+}
